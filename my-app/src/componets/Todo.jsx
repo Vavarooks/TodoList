@@ -1,19 +1,5 @@
 import React, {useState} from "react";
 
-const codeChoice = (props) =>{
-    const [oneChoice, setOneChoice] = useState("");
-    const [choiceError, setChoiceError] = useState("");
-
-    const pickedChoice = (e) => {
-        setOneChoice(e.target.value);
-        if(e.target.value.length == null){
-            setChoiceError("Y=You need to pick one choice!")
-        }else{
-            setChoiceError("");
-        }
-    }
-}
-
 const coding = [
     'Python',
     'HTML',
@@ -25,14 +11,20 @@ const coding = [
 export default function todoForm(){
     const [selectedChoice, setSelectedChoice] = useState(coding[0]);
     const [isPicked, setIsPicked] = useState(false);
-
+    
     function handleSubmit(event){
         event.preventDefault();
         console.log("Form Submitted");
+        
     }
 
     return(
         <>
+            <ul>
+                {coding.map((choice, i) =>
+                    <li key={i}>{choice}</li>
+                )}
+            </ul>
             <div class="card d-block mx-auto w-50 my-3 border p-3">
                 <h1>To do List</h1>
                 <ul>
@@ -42,7 +34,7 @@ export default function todoForm(){
             <div class="card d-block mx-auto w-50 my-3 border p-3">
                 <form onSubmit={handleSubmit}>
                     <select value={selectedChoice} onChange={e => setSelectedChoice}>
-                        {choice.map((choice, idx) => 
+                        {coding.map((choice, idx) => 
                             <option key={idx} value={choice}>{choice}</option>
                         )}
                     </select>

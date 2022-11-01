@@ -1,10 +1,10 @@
 import './App.css';
-import todoForm from './componets/Todo';
+// import todoForm from './componets/Todo';
 
 function App() {
   return (
     <div className="App">
-      <todoForm/>
+      Hello
     </div>
   );
 }
