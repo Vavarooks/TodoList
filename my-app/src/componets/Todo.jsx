@@ -1,14 +1,27 @@
 import React, {useState} from "react";
 
-    const coding = [
-        'Python',
-        'HTML',
-        'Javascript',
-        'Java',
-        'CSS',
-        'C#'
-    ];
+const codeChoice = (props) =>{
+    const [oneChoice, setOneChoice] = useState("");
+    const [choiceError, setChoiceError] = useState("");
 
+    const pickedChoice = (e) => {
+        setOneChoice(e.target.value);
+        if(e.target.value.length == null){
+            setChoiceError("Y=You need to pick one choice!")
+        }else{
+            setChoiceError("");
+        }
+    }
+}
+
+const coding = [
+    'Python',
+    'HTML',
+    'Javascript',
+    'Java',
+    'CSS',
+    'C#'
+];
 export default function todoForm(){
     const [selectedChoice, setSelectedChoice] = useState(coding[0]);
     const [isPicked, setIsPicked] = useState(false);
@@ -29,15 +42,14 @@ export default function todoForm(){
             <div class="card d-block mx-auto w-50 my-3 border p-3">
                 <form onSubmit={handleSubmit}>
                     <select value={selectedChoice} onChange={e => setSelectedChoice}>
-                        {fruit.map((choice, idx) => 
+                        {choice.map((choice, idx) => 
                             <option key={idx} value={choice}>{choice}</option>
                         )}
                     </select>
-                    <label>
-                        <input type="checkbox" checked={isPicked} onChange={ e=>
+                    <label class="form-lable">Add {choice}?</label>
+                        <input class="form-control" type="checkbox" checked={isPicked} onChange={ e=> 
                             setIsPicked(e.target.value)}/>
-                    </label>
-                    <button>Add To List</button>
+                    <button class="btn btn-secondary">Add To List</button>
                 </form>
             </div>
         </>
