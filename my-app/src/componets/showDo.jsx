@@ -1,11 +1,19 @@
 import React, {useState} from "react";
-import todoForm from "./Todo";
+import ToDoForm from './ToDoForm';
 
-const showCode = (e) =>{
-    todoForm();
+const ShowDo = (props) =>{
+    const [createCode, setCreateCode] = useState([
+        {
+            text: "",
+            completed: false
+        }
+    ])
+
     return(
         <div>
-            Hello
+            <ToDoForm createCode={createCode} setCreateCode={setCreateCode} />
         </div>
     );
 }
+
+export default ShowDo;
