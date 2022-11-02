@@ -4,7 +4,7 @@ import ToDoForm from './ToDoForm';
 const ShowDo = (props) =>{
     const [createCode, setCreateCode] = useState([
         {
-            text: "",
+            text: "Do the dishes",
             completed: false
         }
     ])

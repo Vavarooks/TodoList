@@ -15,7 +15,8 @@ const ToDoForm = (props) => {
         event.preventDefault();
         console.log("Form Submitted");
 
-        xyz({"test": listCoding});
+        xyz({"text": listCoding,
+            completed: false});
 
         setListCoding("");
 
@@ -40,18 +41,18 @@ const ToDoForm = (props) => {
             <div className="card d-block mx-auto w-50 my-3 border p-3">
                 <h1>To do List</h1>
 
-                {coding.map((choice, i) =>
+                {createCode.map((choice, i) =>
                     <ul key={i}>
                         <div className="form-check">
-                            <input className="form-check-input" type="checkbox" />
-                            <label className="form-check">{choice}</label>
+                            <input className="form-check-input" type="checkbox" checked={choice.completed}/>
+                            <label className="form-check">{choice.text}</label>
                         </div>
                     </ul>
                 )}
                 <ul>
                     <div className="form-check">
                         <input className="form-check-input" type="checkbox" />
-                        <label className="form-check">{createCode}</label>
+                        <label className="form-check">{listCoding}</label>
                     </div>
                 </ul>
 
